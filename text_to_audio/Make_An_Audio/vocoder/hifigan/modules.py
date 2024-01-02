@@ -297,7 +297,7 @@ class VocoderHifigan(object):
     def __init__(self, ckpt_vocoder,device='cuda'):
         
         with open(os.path.join(ckpt_vocoder,'args.yml'), 'r') as f:
-            vocoder_args = Namespace(**yaml.load(f, Loader=yaml.UnsafeLoader))
+            vocoder_args = Namespace(**yaml.load(f, Loader=yaml.SafeLoader))
 
         self.generator = Generator(vocoder_args)
         netG_path = os.path.join(ckpt_vocoder,'best_netG.pt')
