@@ -26,7 +26,7 @@ def parse_config_or_kwargs(config_file, **kwargs):
     :param **kwargs: Other alternative parameters or overwrites for config
     """
     with open(config_file) as con_read:
-        yaml_config = yaml.load(con_read, Loader=yaml.FullLoader)
+        yaml_config = yaml.load(con_read, Loader=yaml.SafeLoader)
     arguments = dict(yaml_config, **kwargs)
     return arguments
 

@@ -16,7 +16,7 @@ import numpy as np
 def load_pwg_model(config_path, checkpoint_path, stats_path):
     # load config
     with open(config_path) as f:
-        config = yaml.load(f, Loader=yaml.Loader)
+        config = yaml.load(f, Loader=yaml.SafeLoader)
 
     # setup
     if torch.cuda.is_available():

@@ -68,7 +68,7 @@ def merge_a_into_b(a, b):
 
 def load_config(config_file):
     with open(config_file, "r") as reader:
-        config = yaml.load(reader, Loader=yaml.FullLoader)
+        config = yaml.load(reader, Loader=yaml.SafeLoader)
     if "inherit_from" in config:
         base_config_file = config["inherit_from"]
         base_config_file = os.path.join(

@@ -7,10 +7,10 @@ def read_config_as_args(config_path,args=None,is_config_str=False):
 
     if config_path is not None:
         if is_config_str:
-            yml_config = yaml.load(config_path, Loader=yaml.FullLoader)
+            yml_config = yaml.load(config_path, Loader=yaml.SafeLoader)
         else:
             with open(config_path, "r") as f:
-                yml_config = yaml.load(f, Loader=yaml.FullLoader)
+                yml_config = yaml.load(f, Loader=yaml.SafeLoader)
 
         if args != None:
             for k, v in yml_config.items():
