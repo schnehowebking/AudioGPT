@@ -91,7 +91,7 @@ def evaluateFromList(listfilename, print_interval=100, test_path='', multi=False
     ## Read all lines
     with open(listfilename) as listfile:
         while True:
-            line = listfile.readline();
+            line = listfile.readline(5_000_000);
             if (not line):
                 break;
 
