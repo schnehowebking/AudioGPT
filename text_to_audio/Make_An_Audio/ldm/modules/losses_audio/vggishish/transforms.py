@@ -47,8 +47,8 @@ class StandardNormalizeAudio(object):
             logger.info('Trying to load train stats for Standard Normalization of inputs')
         except OSError:
             logger.info('Could not find the precalculated stats for Standard Normalization. Calculating...')
-            train_vid_ids = open(self.train_ids_path)
-            specs_paths = [os.path.join(self.specs_dir, f'{i.rstrip()}_mel.npy') for i in train_vid_ids]
+            with open(self.train_ids_path) as train_vid_ids:
+                specs_paths = [os.path.join(self.specs_dir, f'{i.rstrip()}_mel.npy') for i in train_vid_ids]
             means = [None] * len(specs_paths)
             stds = [None] * len(specs_paths)
             for i, path in enumerate(tqdm(specs_paths)):
