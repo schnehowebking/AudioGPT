@@ -38,13 +38,11 @@ def dcase2017task4(args):
     evaluation_ids_set = get_id_sets(evaluation_weak_csv)
     
     full_ids_set = test_ids_set + evaluation_ids_set
-    
-    # Write black list
-    fw = open(black_list_csv, 'w')
-    
-    for id in full_ids_set:
-        fw.write('{}\n'.format(id))
+    with open(black_list_csv, 'w') as fw:
         
+        for id in full_ids_set:
+            fw.write('{}\n'.format(id))
+            
     print('Write black list to {}'.format(black_list_csv))
     
 
